@@ -1,0 +1,32 @@
+name: complex workflow
+
+on: 
+    push:
+        branches:
+                - main 
+jobs:
+    job1:
+        name: ubuntu OS
+        runs-on: ubuntu-latest
+        steps:
+        - name: getDate
+        - run: date
+    job2: 
+        name: windows OS
+        runs-on: windows-latest
+        steps:
+        - name: getDate
+        - run: date
+    job3:
+        name: macOS
+        runs-on: macos-latest
+        steps:
+        - name: getDate
+        - run: date
+    job4:
+        name: Dependentjob
+        runs-on: ubuntu-latest
+        depends: [job1,job2,job3]
+        steps:
+        - name: finish
+        - run: date +%s
