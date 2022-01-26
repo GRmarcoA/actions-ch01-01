@@ -26,7 +26,7 @@ jobs:
     job4:
         name: Dependentjob
         runs-on: ubuntu-latest
-        depends: [job1,job2,job3]
+        needs: [job1,job2,job3]
         steps:
         - name: finish
         - run: date +%s
